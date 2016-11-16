@@ -54,3 +54,26 @@ $ echo -n $'Time\tValue\n5\t100\n10\t200\n' | ruby -lne 'puts $_ if $. > 1'
 10      200
 $
 ```
+
+### Extracting certain fields based on their titles
+
+One can use:
+
+```
+./bin/select-fields -f Time -f Iterations
+```
+
+For example:
+
+```
+$ echo -n $'Time\tValue\tIterations\n5\t2000\t100\n10\t-34\t200\n'
+Time    Value   Iterations
+5       2000    100
+10      -34     200
+$ echo -n $'Time\tValue\tIterations\n5\t2000\t100\n10\t-34\t200\n' | ./bin/select-fields -f Time -f Iterations
+Time    Iterations
+5       100
+10      200
+$
+```
+
