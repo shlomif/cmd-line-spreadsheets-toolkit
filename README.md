@@ -3,7 +3,7 @@
 The Command Line Spreadsheets Toolkit.
 
 This repository aims to develop documentation and tools for how to interact
-with spreadsheets on the
+with [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet) on the
 [command line interface (“CLI”)](https://en.wikipedia.org/wiki/Command-line_interface)
 of Unix-like systems such as Linux. By command line we do not mean
 [“terminal user interface” (TUI)](https://en.wikipedia.org/wiki/Text-based_user_interface)
