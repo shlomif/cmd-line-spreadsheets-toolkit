@@ -13,6 +13,10 @@ which means that one invokes a full terminal spreadsheet program such as
 manipulate and chart simple spreadsheets semi-automatically and
 directly on the Unix command line.
 
+# Screenshots
+
+![Image](<http://i.imgur.com/CiJRyM9.png>)
+
 # TSV (Tab-separated values) as the Standard Format
 
 The discussion here will assume one uses [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) as the standard intermediate exchange format in
