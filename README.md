@@ -24,4 +24,33 @@ by a tab character (“\t”), which themselves cannot contain it.
 Some spreadsheets may contain a row of names or titles for the columns, and
 you should know if that is the case for them or not.
 
+## Tasks
 
+### Removing the header/title/name line/row
+
+One can use:
+
+```
+tail -n +2
+perl -lnE 'say if $. > 1'
+ruby -lne 'puts $_ if $. > 1'
+```
+
+For example:
+
+```
+$ echo -n $'Time\tValue\n5\t100\n10\t200\n'
+Time    Value
+5       100
+10      200
+$ echo -n $'Time\tValue\n5\t100\n10\t200\n' | tail -n +2
+5       100
+10      200
+$ echo -n $'Time\tValue\n5\t100\n10\t200\n' | perl -lnE 'say if $. > 1'
+5       100
+10      200
+$ echo -n $'Time\tValue\n5\t100\n10\t200\n' | ruby -lne 'puts $_ if $. > 1'
+5       100
+10      200
+$
+```
