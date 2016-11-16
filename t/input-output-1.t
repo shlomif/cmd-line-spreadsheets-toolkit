@@ -1,5 +1,15 @@
 #!/usr/bin/perl
 
+=head1 TODD:
+
+* IO::All has no ->flush method.
+
+* $i1->autoflush(1) did not work.
+
+* io->temp()->absolute->pathname() did not work.
+
+=cut
+
 use strict;
 use warnings;
 
