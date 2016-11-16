@@ -77,3 +77,8 @@ Time    Iterations
 $
 ```
 
+### Creating a chart
+
+One can use [svg-graph](https://github.com/shlomif/perl-App-SVG-Graph)
+for that. There is also [victory-cli](https://github.com/FormidableLabs/victory-cli) but it does not seem to accept TSV.
+
