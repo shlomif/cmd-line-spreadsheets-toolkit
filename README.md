@@ -86,3 +86,14 @@ $
 One can use [svg-graph](https://github.com/shlomif/perl-App-SVG-Graph)
 for that. There is also [victory-cli](https://github.com/FormidableLabs/victory-cli) but it does not seem to accept TSV.
 
+### Merging columns from two-or-more different sources
+
+One can use the [paste](https://en.wikipedia.org/wiki/Paste_%28Unix%29) command
+to merge two or more spreadsheets side by side, while possibly utilising
+Bash’s `<(...)` notation:
+
+```
+$ paste <(echo -n $'Time\tIters\n1\t100\n') <(echo -n $'Delta\n25\n')
+Time    Iters   Delta
+1       100     25
+```
