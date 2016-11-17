@@ -13,6 +13,8 @@ which means that one invokes a full terminal spreadsheet program such as
 manipulate and chart simple spreadsheets semi-automatically and
 directly on the Unix command line.
 
+[![Build Status](https://travis-ci.org/shlomif/cmd-line-spreadsheets-toolkit.svg?branch=master)](https://travis-ci.org/shlomif/cmd-line-spreadsheets-toolkit)
+
 # Screenshots
 
 ![Image](<http://i.imgur.com/CiJRyM9.png>)
