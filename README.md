@@ -108,3 +108,9 @@ after the other using `;`. E.g:
 $ cat foo.tsv bar.tsv baz.tsv | svg-graph
 $ (gen1 ; gen2 ; gen3) | svg-graph
 ```
+
+### Determining the number of rows and columns
+
+One can use `wc -l` to determine the number of rows (including the optional
+header) and `perl -laF'/\t/'pE '$_=@F' | uniq` to determine the number of
+columns.
