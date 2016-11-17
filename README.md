@@ -97,3 +97,14 @@ $ paste <(echo -n $'Time\tIters\n1\t100\n') <(echo -n $'Delta\n25\n')
 Time    Iters   Delta
 1       100     25
 ```
+
+### Concatenating two datasets
+
+One can use the [cat](https://en.wikipedia.org/wiki/Cat_%28Unix%29) command
+to concatenate two data sets, or simply write several output commands one
+after the other using `;`. E.g:
+
+```
+$ cat foo.tsv bar.tsv baz.tsv | svg-graph
+$ (gen1 ; gen2 ; gen3) | svg-graph
+```
