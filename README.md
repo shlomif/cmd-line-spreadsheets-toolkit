@@ -119,4 +119,8 @@ columns.
 
 ### Running sum/product/accumulated column.
 
+One can use `./bin/accum-field` to accumulate one or more named fields:
 
+```
+cat my.tsv | accum-field -f ItersSum=0 -e '$N{ItersSum} += $F{Iterations}'
+```
