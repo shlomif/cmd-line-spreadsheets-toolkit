@@ -116,3 +116,7 @@ $ (gen1 ; gen2 ; gen3) | svg-graph
 One can use `wc -l` to determine the number of rows (including the optional
 header) and `perl -laF'/\t/'pE '$_=@F' | uniq` to determine the number of
 columns.
+
+### Running sum/product/accumulated column.
+
+

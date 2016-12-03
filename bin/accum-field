@@ -1,0 +1,54 @@
+#!/usr/bin/env perl
+
+# Written by Shlomi Fish - http://www.shlomifish.org/ - 2016
+# Licensed under the MIT/Expat License.
+#
+# Example:
+# cat my.tsv | accum-field -f ItersSum=0 -e '$N{ItersSum} += $F{Iterations}'
+
+use strict;
+use warnings;
+
+use Getopt::Long qw/ GetOptions /;
+use List::MoreUtils qw/firstidx/;
+
+my @fields;
+my $code = '';
+GetOptions('fields|f=s' => \@fields, 'expr|e=s' => \$code)
+    or die('Error in command line arguments.');
+
+our %N;
+my @new_names;
+foreach my $f (@fields)
+{
+    my ($name, $val) = split/=/, $f, 2;
+    push @new_names, $name;
+    $N{$name} = $val;
+}
+our %N = map { split/=/,2 } @fields;
+my $header = <>;
+chomp$header;
+
+my @h = split/\t/,$header;
+my %titles = (map { $h[$_] => $_ } keys@h);
+
+sub print_l
+{
+    my ($l) = @_;
+
+    chomp$l;
+    print $l, "\t", join("\t", @N{@new_names}), "\n";
+
+    return;
+}
+
+print $header, "\t", join("\t", @new_names), "\n";
+our (%F, @F);
+while (my $l = <>)
+{
+    chomp$l;
+    @F = split(/\t/, $l);
+    %F = (map { $h[$_] => $F[$_] } keys@F);
+    eval "no strict; no warnings; $code";
+    print_l($l);
+}
