@@ -25,7 +25,6 @@ foreach my $f (@fields)
     push @new_names, $name;
     $N{$name} = $val;
 }
-our %N = map { split/=/,2 } @fields;
 my $header = <>;
 chomp$header;
 
