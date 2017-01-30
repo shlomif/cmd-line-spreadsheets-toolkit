@@ -5,7 +5,7 @@ before_install:
     - sudo apt-get install -y cpanminus libperl-dev make perl
       # For cmake-3.x - probably not needed in trusty.
       # - sudo add-apt-repository ppa:george-edison55/precise-backports -y
-    - sudo cpanm File::Temp IO::All Test::Differences Test::More Test::TrailingSpace
+    - sudo cpanm File::Temp IO::All Test::Differences Test::More Test::PerlTidy Test::TrailingSpace
 perl:
     - "5.24"
 python:

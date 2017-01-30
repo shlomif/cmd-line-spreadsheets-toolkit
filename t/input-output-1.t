@@ -34,9 +34,12 @@ EOF
 
     my $o1 = io->file("$dirname/output");
 
-    system("./bin/select-fields -f Time -f Delta < @{[$i1->absolute->pathname]} > @{[$o1->absolute->pathname]}");
+    system(
+"./bin/select-fields -f Time -f Delta < @{[$i1->absolute->pathname]} > @{[$o1->absolute->pathname]}"
+    );
+
     # TEST
-    eq_or_diff($o1->all, <<"EOF", "select-fields works fine");
+    eq_or_diff( $o1->all, <<"EOF", "select-fields works fine" );
 Time\tDelta
 5\t6
 10\t10
@@ -58,10 +61,12 @@ EOF
 
     my $o1 = io->file("$dirname/output");
 
-    system(qq#./bin/accum-field -f ItersSum=0 -e '\$N{ItersSum} += \$F{Iterations}' < @{[$i1->absolute->pathname]} > @{[$o1->absolute->pathname]}#);
+    system(
+qq#./bin/accum-field -f ItersSum=0 -e '\$N{ItersSum} += \$F{Iterations}' < @{[$i1->absolute->pathname]} > @{[$o1->absolute->pathname]}#
+    );
 
     # TEST
-    eq_or_diff($o1->all, <<"EOF", "select-fields works fine");
+    eq_or_diff( $o1->all, <<"EOF", "select-fields works fine" );
 Time\tIterations\tDelta\tHeight\tItersSum
 5\t100\t6\t16\t100
 10\t200\t10\t20\t300
