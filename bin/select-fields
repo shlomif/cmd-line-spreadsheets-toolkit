@@ -13,18 +13,19 @@ use Getopt::Long qw/ GetOptions /;
 use List::MoreUtils qw/firstidx/;
 
 my @fields;
-GetOptions('fields|f=s' => \@fields)
+GetOptions( 'fields|f=s' => \@fields )
     or die('Error in command line arguments.');
 
 my $header = <>;
-chomp$header;
+chomp $header;
 
-my @h = split/\t/,$header;
+my @h = split /\t/, $header;
+my %titles = ( map { $h[$_] => $_ } keys @h );
 my @indices;
 for my $f (@fields)
 {
-    my $i = firstidx { $_ eq $f } @h;
-    if ($i < 0)
+    my $i = $titles{$f};
+    if ( !defined $i )
     {
         die "Coult not find field $f in header!";
     }
@@ -35,14 +36,14 @@ sub print_l
 {
     my ($l) = @_;
 
-    chomp$l;
-    print join("\t",(split/\t/,$l)[@indices]), "\n";
+    chomp $l;
+    print join( "\t", ( split /\t/, $l )[@indices] ), "\n";
 
     return;
 }
 
 print_l($header);
-while (my $l = <>)
+while ( my $l = <> )
 {
     print_l($l);
 }
