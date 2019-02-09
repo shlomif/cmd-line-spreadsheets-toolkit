@@ -2,6 +2,8 @@
 
 The Command Line Spreadsheets Toolkit.
 
+**UPDATE**: similar and previous and more mature efforts to this one are [csvkit](https://csvkit.readthedocs.io/).
+
 This repository aims to develop documentation and tools for how to interact
 with [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet) on the
 [command line interface (“CLI”)](https://en.wikipedia.org/wiki/Command-line_interface)
