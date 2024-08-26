@@ -15,7 +15,7 @@ use warnings;
 
 use Test::More tests => 2;
 use Test::Differences (qw( eq_or_diff ));
-use IO::All qw/ io /;
+use IO::All    qw/ io /;
 use File::Temp qw/ tempdir /;
 
 my $dirname = tempdir( CLEANUP => 1 );
